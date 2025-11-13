@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bertie's Book Shop - Book List</title>  
+    <link rel="stylesheet"  type="text/css" href="/main.css" /> 
+</head>
+<body>
+    <div class="container">
+        <h1>Bertie's Book Shop</h1>
+        
+        <ul class="book-list">
+            <% if (books && books.length > 0) { %>
+                <% books.forEach(function(book) { %>
+                    <li class="book-item">
+                        <span class="book-title">
+                            <%= book.name %>
+                        </span>
+                        <span class="book-price">£<%= parseFloat(book.price).toFixed(2) %></span>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <li class="book-item">
+                    <span class="book-title">No books currently in stock. Check back soon!</span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bertie's Book Shop - Add Book</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+    <div class="container">
+
+        <form action="/books/bookadded" method="POST">
+            <label for="bookName">Book Name:</label>
+            <!-- Input name is 'name' to match req.body.name -->
+            <input type="text" id="bookName" name="name" required>
+            
+            <label for="bookPrice">Price (£):</label>
+            <!-- Input name is 'price' to match req.body.price -->
+            <input type="number" id="bookPrice" name="price" step="0.01" min="0" required>
+            
+            <button type="submit">Add Book</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px;"><a href="/">Back to Book List</a></p>
+    </div>
+</body>
+</html>

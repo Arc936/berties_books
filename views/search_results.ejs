@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results for "<%= searchTerm %>"</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Book Search</h1>
+        
+        <div class="search-form-container">
+            <!-- Search Form - Submits back to the same page -->
+            <form action="/books/search" method="POST">
+                <input type="text" name="searchTerm" placeholder="Search for book titles..." value="<%= searchTerm %>" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <h2>Results for "<%= searchTerm %>" (<%= books.length %> found)</h2>
+
+        <% if (books.length > 0) { %>
+            <ul>
+                <% books.forEach(book => { %>
+                    <li>
+                        <span class="book-title"><%= book.name %></span>
+                        <span class="book-price">£<%= parseFloat(book.price).toFixed(2) %></span>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p style="text-align: center; font-style: italic; padding: 20px; background-color: #fff0f0;">No books found matching the term, "<%= searchTerm %>". Try a different word!</p>
+        <% } %>
+
+        <div class="back-link">
+            <a href="/">Back to All Books</a>
+        </div>
+    </div>
+</body>
+</html>
